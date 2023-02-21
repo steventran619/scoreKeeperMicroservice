@@ -4,6 +4,11 @@
 * Python 3
 * RabbitMQ installed (https://www.rabbitmq.com/)
 
+## Installing the Service
+```
+pip install -r requirements.txt
+```
+
 ## Starting/running the Service
 ```
 python3 scoreKeeper.py
