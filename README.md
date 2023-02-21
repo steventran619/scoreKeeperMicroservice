@@ -4,6 +4,10 @@
 * Python 3
 * RabbitMQ installed (https://www.rabbitmq.com/)
 
+## Starting/running the Service
+```
+python3 scoreKeeper.py
+```
 
 ## How to Request Data
 
@@ -19,14 +23,12 @@ You'll need to create a new RabbitMQ connection and channel. In Python this is d
 ```
 connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
 channel = connection.channel()
-
 ```
 In order to request data from the ScoreKeeper microservice, you must have a queue within the channel named `winnerPipe`. This can be done with the following:
 ```
 channel.queue_declare(queue='winnerPipe')
 ```
 Finally to request data, you must publish a message via that the queue/pipe name `winnerPipe` with the username as the body.
-
 ```
 winner = 'someUserName4'
 channel.basic_publish(exchange='',
